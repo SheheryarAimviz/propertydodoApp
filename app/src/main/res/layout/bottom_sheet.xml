@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/popup_window"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="#eaeaea">
+
+            <ImageButton
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_cross"
+                android:background="#eaeaea"
+                android:id="@+id/crossbutton"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:text="Filter"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="RESET"
+                android:id="@+id/reset_textview"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                android:paddingRight="12dp"/>
+
+        </android.support.v7.widget.Toolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:padding="10dp"
+                    android:visibility="visible"
+                    android:orientation="vertical">
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioGrp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                        <RadioButton
+                            android:id="@+id/radioForSale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="For sale"
+                            android:textSize="14sp"
+                            android:layout_weight="1"
+                            android:onClick="onRadioButtonClicked"/>
+
+
+                        <RadioButton
+                            android:id="@+id/radioForRent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="For rent"
+                            android:textSize="14sp"
+                            android:layout_weight="1"
+                            android:onClick="onRadioButtonClicked"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+                        <RadioButton
+                            android:id="@+id/radioCommercecialSale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Commercecial sale"
+                            android:layout_weight="1"
+                            android:textSize="14sp"
+                            android:onClick="onRadioButtonClicked"/>
+
+                        <RadioButton
+                            android:id="@+id/radioCommercecialRent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Commercecial rent"
+                            android:textSize="14sp"
+                            android:layout_weight="1"
+                            android:onClick="onRadioButtonClicked"/>
+                        </LinearLayout>
+                    </RadioGroup>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15px">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text=" Type"
+                            android:id="@+id/filter_type_txt"
+                            android:textSize="11dp"/>
+                        <Spinner
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000"
+                            android:id="@+id/filter_type"
+                            android:autofillHints="None"
+                            style="@style/Widget.AppCompat.Spinner.Underlined"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15px"
+                            android:layout_marginRight="2dp"
+                            android:layout_weight="1">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text=" Min. area"
+                                android:id="@+id/filter_min_area_txt"
+                                android:layout_weight="1"
+                                android:textSize="11dp"/>
+                            <Spinner
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000"
+                                android:id="@+id/filter_min_area"
+                                android:layout_weight="1"
+                                android:autofillHints="None"
+                                style="@style/Widget.AppCompat.Spinner.Underlined"/>
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15px"
+                            android:layout_marginLeft="2dp"
+                            android:layout_weight="1">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text=" Max. area"
+                                android:layout_weight="1"
+                                android:id="@+id/filter_max_area_txt"
+                                android:textSize="11dp"/>
+                            <Spinner
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000"
+                                android:id="@+id/filter_max_area"
+                                android:layout_weight="1"
+                                android:autofillHints="None"
+                                style="@style/Widget.AppCompat.Spinner.Underlined"/>
+                        </android.support.design.widget.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15px"
+                            android:layout_marginRight="2dp"
+                            android:layout_weight="1">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text=" Min. bedrooms"
+                                android:id="@+id/filter_min_bedrooms_txt"
+                                android:layout_weight="1"
+                                android:textSize="11dp"/>
+                            <Spinner
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000"
+                                android:id="@+id/filter_min_bedrooms"
+                                android:layout_weight="1"
+                                android:autofillHints="None"
+                                style="@style/Widget.AppCompat.Spinner.Underlined"/>
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15px"
+                            android:layout_marginLeft="2dp"
+                            android:layout_weight="1">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text=" Max. bedrooms"
+                                android:layout_weight="1"
+                                android:id="@+id/filter_max_bedrooms_txt"
+                                android:textSize="11dp"/>
+                            <Spinner
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000"
+                                android:id="@+id/filter_max_bedrooms"
+                                android:layout_weight="1"
+                                android:autofillHints="None"
+                                style="@style/Widget.AppCompat.Spinner.Underlined"/>
+                        </android.support.design.widget.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15px">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text=" Furnishings"
+                            android:id="@+id/filter_furnishings_txt"
+                            android:textSize="11dp"/>
+                        <Spinner
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000"
+                            android:id="@+id/filter_furnishings"
+                            android:autofillHints="None"
+                            style="@style/Widget.AppCompat.Spinner.Underlined"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15px">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text=" Payment"
+                            android:id="@+id/filter_payment_txt"
+                            android:textSize="11dp"/>
+                        <Spinner
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000"
+                            android:id="@+id/filter_payment"
+                            android:autofillHints="None"
+                            style="@style/Widget.AppCompat.Spinner.Underlined"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15px"
+                            android:layout_marginRight="2dp"
+                            android:layout_weight="1">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text=" Min. price"
+                                android:id="@+id/filter_min_price_txt"
+                                android:layout_weight="1"
+                                android:textSize="11dp"/>
+                            <Spinner
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000"
+                                android:id="@+id/filter_min_price"
+                                android:layout_weight="1"
+                                android:autofillHints="None"
+                                style="@style/Widget.AppCompat.Spinner.Underlined"/>
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15px"
+                            android:layout_marginLeft="2dp"
+                            android:layout_weight="1">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text=" Max. price"
+                                android:id="@+id/filter_max_price_txt"
+                                android:layout_weight="1"
+                                android:textSize="11dp"/>
+                            <Spinner
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000"
+                                android:id="@+id/filter_max_price"
+                                android:layout_weight="1"
+                                android:autofillHints="None"
+                                style="@style/Widget.AppCompat.Spinner.Underlined"/>
+                        </android.support.design.widget.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_layout_name1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+
+                        <EditText
+                            android:id="@+id/filter_amemities"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:hint="Amemities" />
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:id="@+id/filter_search"
+        android:layout_alignParentBottom="true"
+        android:text="SEARCH"
+        android:textColor="@color/white"
+        android:background="@color/red"/>
+ </RelativeLayout>

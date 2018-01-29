@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_dialog"
+    android:orientation="vertical"
+    android:paddingBottom="15dp"
+    android:layout_width="match_parent"
+    android:background="#fff"
+    android:layout_height="match_parent" >
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioGrp"
+        android:layout_marginLeft="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/radioForfoot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Square foot"
+            android:textSize="17sp"
+            android:padding="5dp"
+            android:layout_marginTop="7dp"
+            android:layout_weight="1"
+            android:checked="true"
+            android:onClick="onRadioButtonClicked"/>
+
+
+        <RadioButton
+            android:id="@+id/radioFormeter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Square meter"
+            android:textSize="17sp"
+            android:padding="5dp"
+            android:layout_marginTop="7dp"
+            android:layout_weight="1"
+            android:onClick="onRadioButtonClicked"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:text="CANCEL"
+        android:id="@+id/cancel"
+        android:layout_gravity="right"
+        android:paddingRight="20dp"
+        android:textSize="16sp"
+        android:textColor="@color/red"/>
+</LinearLayout>

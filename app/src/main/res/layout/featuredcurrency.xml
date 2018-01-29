@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_dialog_currency"
+    android:orientation="vertical"
+    android:paddingBottom="15dp"
+    android:layout_width="match_parent"
+    android:background="#fff"
+    android:layout_height="match_parent" >
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioGrp_currency"
+        android:layout_marginLeft="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/radioFor_aed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AED"
+            android:textSize="17sp"
+            android:padding="5dp"
+            android:layout_marginTop="7dp"
+            android:layout_weight="1"
+            android:checked="true"
+            android:onClick="onRadioButtonClicked"/>
+
+
+        <RadioButton
+            android:id="@+id/radioFor_usd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" USD"
+            android:textSize="17sp"
+            android:padding="5dp"
+            android:layout_marginTop="7dp"
+            android:layout_weight="1"
+            android:onClick="onRadioButtonClicked"/>
+
+    </RadioGroup>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:text="CANCEL"
+        android:id="@+id/cancel_currency"
+        android:layout_gravity="right"
+        android:paddingRight="20dp"
+        android:textSize="16sp"
+        android:textColor="@color/red"/>
+
+</LinearLayout>
